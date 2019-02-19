@@ -6,5 +6,16 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js'
-  }
+  },
+  // babel-loader
+  module: {
+    rules: [
+      {
+        loader: 'babel-loader',
+        test: /\.js$/, //check for files that end in js
+        exclude: /node_modules/
+      }
+    ]
+  },
+  devtool: 'cheap-module-eval-source-map'
 };
