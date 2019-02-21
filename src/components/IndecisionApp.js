@@ -7,16 +7,17 @@ import OptionModal from './OptionModal';
 
 // Parent Component
 export default class IndecisionApp extends React.Component {
-  state = {
-    options: [],
-    selectedOption: undefined
-  };
-  handleClearSelectedOption = () => {
-    this.setState(() => ({ selectedOption: undefined }));
-  };
+  state = { options: [], selectedOption: undefined };
+
   handleDeleteOptions = () => {
     // New shorthand syntax for implicitly return of object
     this.setState(() => ({ options: [] }));
+  };
+
+  handleClearSelectedOption = () => {
+    this.setState(() => ({
+      selectedOption: undefined
+    }));
   };
   // removes individual items
   handleDeleteOption = (optionToRemove) => {
@@ -50,7 +51,9 @@ export default class IndecisionApp extends React.Component {
       const json = localStorage.getItem('options');
       const options = JSON.parse(json);
       if (options) {
-        this.setState(() => ({ options: options }));
+        this.setState(() => ({
+          options: options
+        }));
       }
     } catch (e) {}
   }
