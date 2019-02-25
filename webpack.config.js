@@ -14,6 +14,10 @@ module.exports = {
         loader: 'babel-loader',
         test: /\.js$/, //check for files that end in js
         exclude: /node_modules/
+      },
+      {
+        test: /\.s?css$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
   },
